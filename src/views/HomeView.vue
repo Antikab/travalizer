@@ -1,5 +1,5 @@
 <script setup></script>
 
 <template>
-  <main>Hello Vue3</main>
+  <div>Добро пожаловать!</div>
 </template>
