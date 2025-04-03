@@ -931,6 +931,56 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.28.tgz#d45e01c4a56f143ee69c54dd6b12eade9e270a73"
   integrity sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==
 
+"@primeuix/styled@^0.5.0", "@primeuix/styled@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.5.1.tgz#0b21a2dd58fc50ebc80567ec6326e8ba6ea4f5b2"
+  integrity sha512-5Ftw/KSauDPClQ8F2qCyCUF7cIUEY4yLNikf0rKV7Vsb8zGYNK0dahQe7CChaR6M2Kn+NA2DSBSk76ZXqj6Uog==
+  dependencies:
+    "@primeuix/utils" "^0.5.3"
+
+"@primeuix/styles@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/styles/-/styles-1.0.1.tgz#0f64bac910212761d09f6e5c983ec9bdda2eae06"
+  integrity sha512-R7SX001ILHIJM9hh1opbsuOFFK8dOM8GY1y99jaCFnAc5gGy3mFPJMhoexRYV1a6UZ2YbfcsQVPbIhoONI1gfg==
+  dependencies:
+    "@primeuix/styled" "^0.5.1"
+
+"@primeuix/themes@^1.0.0", "@primeuix/themes@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/themes/-/themes-1.0.1.tgz#f88520937fd09a901bd6a055e5a7e7c575a6116e"
+  integrity sha512-RllttI3oGTZa66UQDCIA2lPnJvO/xqtNpy+0eNql6fIxdS2AUg5n7L81jTZrHNZ+31T5OBzL/SGFCDycmHTz2g==
+  dependencies:
+    "@primeuix/styled" "^0.5.1"
+
+"@primeuix/utils@^0.5.1", "@primeuix/utils@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.5.3.tgz#3a6f597f88e6e9ff8993e81a25c2dfcdd787fd71"
+  integrity sha512-7SGh7734wcF1/uK6RzO6Z6CBjGQ97GDHfpyl2F1G/c7R0z9hkT/V72ypDo82AWcCS7Ta07oIjDpOCTkSVZuEGQ==
+
+"@primevue/core@4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.3.3.tgz#aa51762bfb2c781e6ae843168b1bbcf44f8c2e5d"
+  integrity sha512-kSkN5oourG7eueoFPIqiNX3oDT/f0I5IRK3uOY/ytz+VzTZp5yuaCN0Nt42ZQpVXjDxMxDvUhIdaXVrjr58NhQ==
+  dependencies:
+    "@primeuix/styled" "^0.5.0"
+    "@primeuix/utils" "^0.5.1"
+
+"@primevue/icons@4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.3.3.tgz#840f015a633a48677d7cff449e0769f7c5aad4ad"
+  integrity sha512-ouQaxHyeFB6MSfEGGbjaK5Qv9efS1xZGetZoU5jcPm090MSYLFtroP1CuK3lZZAQals06TZ6T6qcoNukSHpK5w==
+  dependencies:
+    "@primeuix/utils" "^0.5.1"
+    "@primevue/core" "4.3.3"
+
+"@primevue/themes@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@primevue/themes/-/themes-4.3.3.tgz#32c034c0fb014e7e083fb2e7a176fd5aa75d347e"
+  integrity sha512-LiYlSXsHeA8DFm8+yGyiDFQc3SEQwHcESTN1/rV+rrZ+UPuPisHY9fNIGRFQKA5XUQPDTQDQjtwYGx25Jikwhg==
+  dependencies:
+    "@primeuix/styled" "^0.5.0"
+    "@primeuix/themes" "^1.0.0"
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -2542,6 +2592,22 @@ pretty-ms@^9.0.0:
   integrity sha512-4yf0QO/sllf/1zbZWYnvWw3NxCQwLXKzIj0G849LSufP15BXKM0rbD2Z3wVnkMfjdn/CB0Dpp444gYAACdsplg==
   dependencies:
     parse-ms "^4.0.0"
+
+primeicons@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-7.0.0.tgz#6b25c3fdcb29bb745a3035bdc1ed5902f4a419cf"
+  integrity sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==
+
+primevue@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.3.3.tgz#b7f5cba49c20eb4a644521062752b57996042b28"
+  integrity sha512-nooYVoEz5CdP3EhUkD6c3qTdRmpLHZh75fBynkUkl46K8y5rksHTjdSISiDijwTA5STQIOkyqLb+RM+HQ6nC1Q==
+  dependencies:
+    "@primeuix/styled" "^0.5.0"
+    "@primeuix/styles" "^1.0.0"
+    "@primeuix/utils" "^0.5.1"
+    "@primevue/core" "4.3.3"
+    "@primevue/icons" "4.3.3"
 
 protobufjs@^7.2.5:
   version "7.4.0"

@@ -10,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/">Домой</RouterLink>
           <RouterLink to="/signup">Зарегистрироваться</RouterLink>
           <RouterLink to="/signin">Войти</RouterLink>
+          <RouterLink to="/list">список</RouterLink>
         </div>
       </div>
     </div>
