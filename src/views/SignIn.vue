@@ -7,6 +7,7 @@ import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import Loader from '../components/Loader.vue'
+import GoogleAuthLink from '../components/GoogleAuthLink.vue'
 
 const { sign, error, loader } = useAuth()
 const router = useRouter()
@@ -43,7 +44,15 @@ const signin = async () => {
     <Loader v-if="loader" />
     <div v-else class="flex flex-column gap-3">
       <Button label="Signin" @click="signin" />
-      <span>Not registered yet? <router-link to="/signup">Sign up</router-link></span>
+      <div class="flex flex-col">
+        <span
+          >Not registered yet?
+          <router-link to="/signup" class="text-[#0c66c2] cursor-pointer"
+            >Sign up</router-link
+          ></span
+        >
+        <GoogleAuthLink />
+      </div>
     </div>
   </form>
 </template>
