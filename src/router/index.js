@@ -44,12 +44,13 @@ router.beforeEach((to, from) => {
   const { userInfo } = useAuth()
   const isAuthenticated = !!userInfo.value.token
 
-  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+  if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
     return { name: 'Signin' }
   }
-  if (to.matched.some(record => record.meta.requiresGuest) && isAuthenticated) {
+  if (to.matched.some((record) => record.meta.requiresGuest) && isAuthenticated) {
     return { name: 'List' }
   }
+  return true
 })
 
 export default router

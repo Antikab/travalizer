@@ -24,6 +24,7 @@ axiosApiInstance.interceptors.response.use(
     const { userInfo } = useAuth()
     const originalRequest = error.config
     if (error.response.status === 401 && !originalRequest._retry) {
+      console.warn('Получен 401, начинаем обновление токена...')
       originalRequest._retry = true
       try {
         // Обновление токена через securetoken.googleapis.com

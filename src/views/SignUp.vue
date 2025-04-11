@@ -3,6 +3,9 @@ import { ref } from 'vue'
 import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
+import Password from 'primevue/password'
+import IconField from 'primevue/iconfield'
+import InputIcon from 'primevue/inputicon'
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
 import Message from 'primevue/message'
@@ -26,20 +29,16 @@ const signup = async () => {
 
 <template>
   <h2>Sign Up</h2>
-  <form class="flex flex-column gap-3">
+  <form class="flex flex-col gap-3 justify-center items-center">
     <Message v-if="error" severity="warn">{{ error }}</Message>
-    <div class="p-inputgroup flex-1">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-user"></i>
-      </span>
+    <IconField class="flex justify-center items-center">
+      <InputIcon class="flex justify-center items-center pi pi-envelope" />
       <InputText type="email" v-model="email" placeholder="Your Email" />
-    </div>
-    <div class="p-inputgroup flex-1">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-at"></i>
-      </span>
-      <InputText type="password" v-model="password" placeholder="Password" />
-    </div>
+    </IconField>
+    <IconField class="flex justify-center items-center">
+      <InputIcon class="flex justify-center items-center pi pi-key" />
+      <Password v-model="password" toggleMask placeholder="Password" />
+    </IconField>
     <Loader v-if="loader" />
     <div v-else class="flex flex-column gap-3">
       <Button label="Signup" @click="signup" />
