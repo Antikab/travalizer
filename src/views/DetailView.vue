@@ -1,5 +1,5 @@
 <script setup></script>
 
 <template>
-  <div>list id</div>
+  <div>Details list id</div>
 </template>

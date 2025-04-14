@@ -29,22 +29,22 @@ function useAuth() {
     const url = `https://identitytoolkit.googleapis.com/v1/accounts:${stringUrl}?key=${apiKey}`
 
     try {
-      const res = await axiosApiInstance.post(url, {
+      let response = await axiosApiInstance.post(url, {
         email: payload.email,
         password: payload.password,
         returnSecureToken: true
       })
       userInfo.value = {
-        token: res.data.idToken,
-        email: res.data.email,
-        userId: res.data.localId,
-        refreshToken: res.data.refreshToken
+        token: response.data.idToken,
+        email: response.data.email,
+        userId: response.data.localId,
+        refreshToken: response.data.refreshToken
       }
       localStorage.setItem(
         'userTokens',
         JSON.stringify({
-          token: res.data.idToken,
-          refreshToken: res.data.refreshToken
+          token: response.data.idToken,
+          refreshToken: response.data.refreshToken
         })
       )
     } catch (err) {
@@ -84,19 +84,17 @@ function useAuth() {
 
   // Вход через Google
   const signInWithGoogle = async () => {
-    loader.value = true
     error.value = ''
-    const authInstance = getAuth() // Получаем экземпляр Firebase Auth
+    loader.value = true
+    const authAxiosApiInstance = getAuth() // Получаем экземпляр Firebase Auth
     const provider = new GoogleAuthProvider() // Создаём провайдера Google
     try {
       // Запускаем всплывающее окно входа через Google
-      const result = await signInWithPopup(authInstance, provider)
+      const result = await signInWithPopup(authAxiosApiInstance, provider)
       // Получаем данные пользователя
       const user = result.user
-      // Получаем токен; здесь можно использовать credential, но у объекта user есть нужные данные
       const credential = GoogleAuthProvider.credentialFromResult(result)
-      console.log('credential', credential)
-      const token = credential?.accessToken || user.stsTokenManager.accessToken
+      const token = credential?.accessToken
       userInfo.value = {
         token: token,
         email: user.email,
