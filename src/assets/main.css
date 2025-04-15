@@ -1,4 +1,18 @@
 @import 'tailwindcss';
+:root {
+--p-inputtext-focus-border-color: var(--color-primary-color-3) !important;
+--p-inputtext-hover-border-color: var(--color-primary-color-5) !important;
+--p-inputtext-border-color: var(--color-primary-color-4) !important;
+--p-form-field-icon-color: var(--color-primary-color-5) !important;
+--p-form-field-border-radius: 8px !important;
+
+--p-button-primary-background: var(--color-primary-color-3) !important;
+--p-button-primary-hover-background: var(--color-primary-color) !important;
+--p-button-primary-border-color: var(--color-primary-color-3) !important;
+--p-button-primary-hover-border-color: var(--color-primary-color) !important;
+--p-button-outlined-primary-border-color: var(--color-primary-color-3) !important;
+--p-button-outlined-primary-color: var(--color-primary-color-3) !important;
+}
 
 @theme {
   /* Шрифты */
@@ -8,7 +22,10 @@
   --color-primary-color: #355b3e;
   --color-primary-color-2: #58745e;
   --color-primary-color-3: #029664;
+  --color-primary-color-4: #b8d6bf;
+  --color-primary-color-5: #95b29b;
   --color-secondary-color: #f5dbc4;
+
 
   /* Тени */
   --shadow-8-16: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
@@ -20,24 +37,45 @@
     color: var(--color-neutral-color);
   }
 
+
+
   .p-password-input {
     width: 100% !important;
+  }
+
+  .p-button-outlined {
+
   }
 }
 
 @layer components {
   /*Текст */
-  .title-40 {
+  .title-32 {
     font-weight: 600;
-    font-size: 40px;
+    font-size: 32px;
+    line-height: 100%;
+    color: var(--color-primary-color);
   }
-  .title-15 {
-    font-weight: 700;
-    font-size: 15px;
+
+  .title-24 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    color: var(--color-primary-color);
   }
-  .title-12 {
-    font-weight: 700;
-    font-size: 12px;
+
+  .title-20 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--color-primary-color);
+  }
+
+  .title-16 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--color-primary-color-2);
   }
 
   /* Градиенты виджета */

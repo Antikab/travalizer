@@ -1,13 +1,12 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import { useAuth } from '../auth'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: '/pokemons'
   },
   {
     path: '/signin',
@@ -22,14 +21,14 @@ const routes = [
     meta: { requiresGuest: true }
   },
   {
-    path: '/list',
-    name: 'List',
+    path: '/pokemons',
+    name: 'Pokemons',
     component: () => import('../views/ListView.vue'),
     meta: { requiresAuth: true }
   },
   {
-    path: '/list/:id',
-    name: 'Detail',
+    path: '/pokemons/:id',
+    name: 'PokemonsDetail',
     component: () => import('../views/DetailView.vue'),
     meta: { requiresAuth: true }
   }
@@ -48,7 +47,7 @@ router.beforeEach((to, from) => {
     return { name: 'Signin' }
   }
   if (to.matched.some((record) => record.meta.requiresGuest) && isAuthenticated) {
-    return { name: 'List' }
+    return { name: 'Pokemons' }
   }
   return true
 })

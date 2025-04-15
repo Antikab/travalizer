@@ -8,10 +8,15 @@ const router = useRouter()
 
 const handleLogout = () => {
   logout()
-  router.push('/')
+  router.push('/signin')
 }
 </script>
 
 <template>
-  <Button label="Logout" @click="handleLogout" />
+  <Button
+    label="Logout"
+    @click="handleLogout"
+    class="p-button-danger"
+  />
 </template>
+

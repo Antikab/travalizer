@@ -16,7 +16,7 @@ const password = ref('')
 const signup = async () => {
   try {
     await sign({ email: email.value, password: password.value }, 'signup')
-    router.push('/list')
+    router.push({name: 'Pokemons'})
   } catch (err) {
     console.error(err)
   }
@@ -41,7 +41,7 @@ const signin = () => {
       <Loader v-if="loader" />
 
       <!-- Кнопки: устанавливаем тип button и привязываем обработчики -->
-      <div v-else class="flex flex-col gap-2">
+      <div v-else class="flex gap-2">
         <Button label="Register" type="submit" @click="signup" class="w-full" />
         <Button label="Sign In" type="button" @click="signin" class="w-full p-button-outlined" />
       </div>

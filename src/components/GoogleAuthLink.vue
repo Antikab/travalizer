@@ -3,14 +3,14 @@
 import { useRouter } from 'vue-router'
 import { useAuth } from '../auth'
 
-const { signInWithGoogle, error } = useAuth()
+const { signInWithGoogle } = useAuth()
 const router = useRouter()
 
 // Обработчик клика по "Google"
 const handleGoogleClick = async () => {
   try {
     await signInWithGoogle()
-    router.push('/list') // переход на /list после успешного входа
+    router.push({ name: 'Pokemons' })
   } catch (err) {
     console.error(err)
   }
@@ -19,7 +19,6 @@ const handleGoogleClick = async () => {
 
 <template>
   <a
-    href="#"
     @click.prevent="handleGoogleClick"
     class="text-primary-color font-semibold cursor-pointer hover:underline"
   >
