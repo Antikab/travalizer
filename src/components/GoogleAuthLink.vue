@@ -18,11 +18,11 @@ const handleGoogleClick = async () => {
 </script>
 
 <template>
-  <div style="display: flex; gap: 0.5rem; align-items: center">
-    <span>Or, login with</span>
-    <a href="#" @click.prevent="handleGoogleClick" class="text-[#0c66c2] cursor-pointer">
-      Google
-    </a>
-    <p v-if="error" style="color: red; margin: 0">{{ error }}</p>
-  </div>
+  <a
+    href="#"
+    @click.prevent="handleGoogleClick"
+    class="text-primary-color font-semibold cursor-pointer hover:underline"
+  >
+    Google
+  </a>
 </template>

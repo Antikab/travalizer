@@ -3,13 +3,11 @@ import { ref } from 'vue'
 import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
-import InputText from 'primevue/inputtext'
+import AuthForm from '../components/AuthForm.vue'
 import Button from 'primevue/button'
-import Message from 'primevue/message'
 import Loader from '../components/Loader.vue'
-import GoogleAuthLink from '../components/GoogleAuthLink.vue'
 
-const { sign, error, loader } = useAuth()
+const { sign, loader } = useAuth()
 const router = useRouter()
 
 const email = ref('')
@@ -23,36 +21,30 @@ const signin = async () => {
     console.error(err)
   }
 }
+
+const signup = () => {
+  router.push('/signup')
+}
 </script>
 
 <template>
-  <h2>Sign In</h2>
-  <form class="flex flex-column gap-3">
-    <Message v-if="error" severity="warn">{{ error }}</Message>
-    <div class="p-inputgroup flex-1">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-user"></i>
-      </span>
-      <InputText type="email" v-model="email" placeholder="Your Email" />
-    </div>
-    <div class="p-inputgroup flex-1">
-      <span class="p-inputgroup-addon">
-        <i class="pi pi-at"></i>
-      </span>
-      <InputText type="password" v-model="password" placeholder="Password" />
-    </div>
-    <Loader v-if="loader" />
-    <div v-else class="flex flex-column gap-3">
-      <Button label="Signin" @click="signin" />
-      <div class="flex flex-col">
-        <span
-          >Not registered yet?
-          <router-link to="/signup" class="text-[#0c66c2] cursor-pointer"
-            >Sign up</router-link
-          ></span
-        >
-        <GoogleAuthLink />
+  <AuthForm>
+    <template #header>
+      <p class="mb-6 text-gray-700 text-sm text-center">
+        Artificial Intelligence giving you travel recommendations<br />
+        Welcome Back, Please login to your account
+      </p>
+    </template>
+
+    <template #form>
+      <!-- Индикатор загрузки -->
+      <Loader v-if="loader" />
+
+      <!-- Кнопки: устанавливаем тип button и привязываем обработчики -->
+      <div v-else class="flex flex-col gap-2">
+        <Button label="Login" type="submit" @click="signin" class="w-full" />
+        <Button label="Sign Up" type="button" @click="signup" class="w-full p-button-outlined" />
       </div>
-    </div>
-  </form>
+    </template>
+  </AuthForm>
 </template>

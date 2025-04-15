@@ -27,7 +27,7 @@ const token = computed(() => userInfo.value.token)
     </div>
   </header>
 
-  <main class="mt-10 flex justify-center">
+  <main class="mt-10 flex justify-center bg-primary-color">
     <RouterView />
   </main>
 </template>

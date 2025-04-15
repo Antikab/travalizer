@@ -5,7 +5,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
 const apiKey = import.meta.env.VITE_API_KEY_FIREBASE
 
-// При инициализации пытаемся прочитать данные из localStorage
+// Читаем данные из localStorage
 const storedTokens = localStorage.getItem('userTokens')
 const userInfo = ref(
   storedTokens
@@ -20,8 +20,8 @@ const userInfo = ref(
 const error = ref('')
 const loader = ref(false)
 
+// Вход через Email/Password
 function useAuth() {
-  // Обычная авторизация через Email/Password
   const sign = async (payload, type) => {
     const stringUrl = type === 'signup' ? 'signUp' : 'signInWithPassword'
     error.value = ''
@@ -86,8 +86,8 @@ function useAuth() {
   const signInWithGoogle = async () => {
     error.value = ''
     loader.value = true
-    const authAxiosApiInstance = getAuth() // Получаем экземпляр Firebase Auth
-    const provider = new GoogleAuthProvider() // Создаём провайдера Google
+    const authAxiosApiInstance = getAuth()
+    const provider = new GoogleAuthProvider()
     try {
       // Запускаем всплывающее окно входа через Google
       const result = await signInWithPopup(authAxiosApiInstance, provider)

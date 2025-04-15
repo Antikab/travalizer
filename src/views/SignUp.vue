@@ -3,15 +3,11 @@ import { ref } from 'vue'
 import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
-import Password from 'primevue/password'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import InputText from 'primevue/inputtext'
+import AuthForm from '../components/AuthForm.vue'
 import Button from 'primevue/button'
-import Message from 'primevue/message'
 import Loader from '../components/Loader.vue'
 
-const { sign, error, loader } = useAuth()
+const { sign, loader } = useAuth()
 const router = useRouter()
 
 const email = ref('')
@@ -25,24 +21,30 @@ const signup = async () => {
     console.error(err)
   }
 }
+
+const signin = () => {
+  router.push('/signin')
+}
 </script>
 
 <template>
-  <h2>Sign Up</h2>
-  <form class="flex flex-col gap-3 justify-center items-center">
-    <Message v-if="error" severity="warn">{{ error }}</Message>
-    <IconField class="flex justify-center items-center">
-      <InputIcon class="flex justify-center items-center pi pi-envelope" />
-      <InputText type="email" v-model="email" placeholder="Your Email" />
-    </IconField>
-    <IconField class="flex justify-center items-center">
-      <InputIcon class="flex justify-center items-center pi pi-key" />
-      <Password v-model="password" toggleMask placeholder="Password" />
-    </IconField>
-    <Loader v-if="loader" />
-    <div v-else class="flex flex-column gap-3">
-      <Button label="Signup" @click="signup" />
-      <span>Already registered? <router-link to="/signin">Sign in</router-link></span>
-    </div>
-  </form>
+  <AuthForm>
+    <template #header>
+      <p class="mb-6 text-gray-700 text-sm text-center">
+        Artificial Intelligence giving you travel recommendations<br />
+        Welcome Back, Please register your account
+      </p>
+    </template>
+
+    <template #form>
+      <!-- Индикатор загрузки -->
+      <Loader v-if="loader" />
+
+      <!-- Кнопки: устанавливаем тип button и привязываем обработчики -->
+      <div v-else class="flex flex-col gap-2">
+        <Button label="Register" type="submit" @click="signup" class="w-full" />
+        <Button label="Sign In" type="button" @click="signin" class="w-full p-button-outlined" />
+      </div>
+    </template>
+  </AuthForm>
 </template>

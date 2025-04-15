@@ -5,9 +5,10 @@
   --font-family: 'Inter', sans-serif;
 
   /* Цвета */
-  --color-neutral-color: #191919;
-  --color-neutral-color-2: #6b6b6b;
-  --color-neutral-color-3: #6b6b6b;
+  --color-primary-color: #355b3e;
+  --color-primary-color-2: #58745e;
+  --color-primary-color-3: #029664;
+  --color-secondary-color: #f5dbc4;
 
   /* Тени */
   --shadow-8-16: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
@@ -17,6 +18,10 @@
   body {
     font-family: var(--font-family);
     color: var(--color-neutral-color);
+  }
+
+  .p-password-input {
+    width: 100% !important;
   }
 }
 

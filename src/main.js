@@ -7,6 +7,7 @@ import { initializeApp } from 'firebase/app'
 import PrimeVue from 'primevue/config'
 import App from './App.vue'
 import router from './router'
+import InlineSvg from 'vue-inline-svg'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBh8-Xe5Lc-Y3Eu2fi61v8r9gPj_DLCVWU',
@@ -20,8 +21,8 @@ const firebaseConfig = {
 initializeApp(firebaseConfig)
 
 const app = createApp(App)
+app.component('inline-svg', InlineSvg)
 app.use(PrimeVue, {
-  // Default theme configuration
   theme: {
     preset: Aura,
     options: {
