@@ -23,7 +23,7 @@ const routes = [
   {
     path: '/pokemons',
     name: 'Pokemons',
-    component: () => import('../views/ListView.vue'),
+    component: () => import('../views/PokemonsView.vue'),
     meta: { requiresAuth: true }
   },
   {

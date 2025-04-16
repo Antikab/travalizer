@@ -1,17 +1,17 @@
 @import 'tailwindcss';
 :root {
---p-inputtext-focus-border-color: var(--color-primary-color-3) !important;
---p-inputtext-hover-border-color: var(--color-primary-color-5) !important;
---p-inputtext-border-color: var(--color-primary-color-4) !important;
---p-form-field-icon-color: var(--color-primary-color-5) !important;
---p-form-field-border-radius: 8px !important;
+  --p-inputtext-focus-border-color: var(--color-primary-color-3) !important;
+  --p-inputtext-hover-border-color: var(--color-primary-color-5) !important;
+  --p-inputtext-border-color: var(--color-primary-color-4) !important;
+  --p-form-field-icon-color: var(--color-primary-color-5) !important;
+  --p-form-field-border-radius: 8px !important;
 
---p-button-primary-background: var(--color-primary-color-3) !important;
---p-button-primary-hover-background: var(--color-primary-color) !important;
---p-button-primary-border-color: var(--color-primary-color-3) !important;
---p-button-primary-hover-border-color: var(--color-primary-color) !important;
---p-button-outlined-primary-border-color: var(--color-primary-color-3) !important;
---p-button-outlined-primary-color: var(--color-primary-color-3) !important;
+  --p-button-primary-background: var(--color-primary-color-3) !important;
+  --p-button-primary-hover-background: var(--color-primary-color-5) !important;
+  --p-button-primary-border-color: var(--color-primary-color-3) !important;
+  --p-button-primary-hover-border-color: var(--color-primary-color-5) !important;
+  --p-button-outlined-primary-border-color: var(--color-primary-color-3) !important;
+  --p-button-outlined-primary-color: var(--color-primary-color-3) !important;
 }
 
 @theme {
@@ -26,7 +26,6 @@
   --color-primary-color-5: #95b29b;
   --color-secondary-color: #f5dbc4;
 
-
   /* Тени */
   --shadow-8-16: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
 }
@@ -37,14 +36,11 @@
     color: var(--color-neutral-color);
   }
 
-
-
   .p-password-input {
     width: 100% !important;
   }
 
   .p-button-outlined {
-
   }
 }
 

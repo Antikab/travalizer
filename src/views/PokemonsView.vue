@@ -1,20 +1,22 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import axios from 'axios'
+import Button from 'primevue/button'
+import Card from 'primevue/card'
+
 import LogoutButton from '@/components/LogoutButton.vue'
 import Loader from '@/components/Loader.vue'
 
-import { ref, onMounted } from 'vue'
-import Button from 'primevue/button'
-import Card from 'primevue/card'
-import { useRouter } from 'vue-router'
-
-const pokemons = ref([])
-const loading = ref(true)
 const router = useRouter()
+
+const pokemons = ref(null)
+const loading = ref(true)
 
 const fetchPokemons = async () => {
   try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=16')
-    const data = await response.json()
+    const response = await axios('https://pokeapi.co/api/v2/pokemon?limit=16')
+    const data = response.data
     pokemons.value = data.results.map((pokemon, index) => ({
       id: index + 1,
       name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
@@ -37,12 +39,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-6 p-6">
+  <div class="flex flex-col gap-10 p-6">
     <div class="flex justify-end">
       <LogoutButton />
     </div>
 
-    <Loader v-if="loading" class="mx-auto" />
+    <Loader v-if="loading" class="grow flex items-center justify-center" />
 
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <Card
@@ -59,7 +61,7 @@ onMounted(() => {
         </template>
 
         <template #footer>
-          <Button label="Подробнее" class="w-full" @click="goToDetail(pokemon.id)" />
+          <Button label="More details" class="w-full" @click="goToDetail(pokemon.id)" />
         </template>
       </Card>
     </div>

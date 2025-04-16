@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import axios from 'axios'
 import Card from 'primevue/card'
 import Button from 'primevue/button'
+
 import LogoutButton from '@/components/LogoutButton.vue'
 import Loader from '@/components/Loader.vue'
 
@@ -14,8 +16,9 @@ const loading = ref(true)
 
 const fetchPokemonDetail = async () => {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${route.params.id}`)
-    const data = await response.json()
+    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${route.params.id}`)
+    const data = response.data
+
     pokemon.value = {
       name: data.name.charAt(0).toUpperCase() + data.name.slice(1),
       image: data.sprites.other['official-artwork'].front_default,
@@ -41,9 +44,9 @@ const goBack = () => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-6 p-6 min-h-screen">
-    <div class="flex justify-between items-center">
-      <Button label="Назад" @click="goBack" />
+  <div class="flex flex-col gap-10 p-6 min-h-screen">
+    <div class="flex justify-between items-center gap-6">
+      <Button label="Back" @click="goBack" />
       <LogoutButton />
     </div>
 
@@ -58,14 +61,14 @@ const goBack = () => {
 
       <template #content>
         <ul class="space-y-2 text-lg">
-          <li><b>Рост:</b> {{ pokemon.height }}</li>
-          <li><b>Вес:</b> {{ pokemon.weight }}</li>
-          <li><b>Тип:</b> {{ pokemon.types }}</li>
-          <li><b>Способности:</b> {{ pokemon.abilities }}</li>
+          <li><b>Height:</b> {{ pokemon.height }}</li>
+          <li><b>Weight:</b> {{ pokemon.weight }}</li>
+          <li><b>Type:</b> {{ pokemon.types }}</li>
+          <li><b>Abilities:</b> {{ pokemon.abilities }}</li>
         </ul>
       </template>
     </Card>
 
-    <Loader v-if="loading" class="mx-auto" />
+    <Loader v-if="loading" class="grow flex items-center justify-center" />
   </div>
 </template>

@@ -1,6 +1,6 @@
+<!-- authform.vue -->
 <script setup>
-import { ref } from 'vue'
-
+import { inject } from 'vue'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import IconField from 'primevue/iconfield'
@@ -12,25 +12,26 @@ import GoogleAuthLink from '../components/GoogleAuthLink.vue'
 
 const { error } = useAuth()
 
-const email = ref('')
-const password = ref('')
+const credentials = inject('credentials')
 </script>
 
 <template>
   <div class="min-h-screen flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl w-full flex flex-col md:flex-row overflow-hidden">
       <!-- Левая колонка: Форма -->
-      <div class="lg:w-[550px] md:[450px] w-full flex flex-col items-center p-[32px_24px_30px] md:p-[48px_64px_66px]">
+      <div
+        class="lg:w-[550px] md:[450px] w-full flex flex-col items-center p-[32px_24px_30px] md:p-[48px_64px_66px]"
+      >
         <div class="flex flex-col w-full">
           <div class="h-[48px] mb-[56px] flex gap-4 items-center">
-						<inline-svg
-							class="text-primary-color size-[48px]"
-							src="/src/assets/icons/Logo.svg"
-							aria-label="icon-logo"
-							role="img"
-							fill="currentColor"
-						/>
-            <h1 class=" title-32 ">Travalizer</h1>
+            <inline-svg
+              class="text-primary-color size-[48px]"
+              src="/src/assets/icons/Logo.svg"
+              aria-label="icon-logo"
+              role="img"
+              fill="currentColor"
+            />
+            <h1 class="title-32">Travalizer</h1>
           </div>
           <slot name="header"></slot>
         </div>
@@ -44,7 +45,7 @@ const password = ref('')
             <InputText
               id="email"
               type="email"
-              v-model="email"
+              v-model="credentials.email"
               placeholder="robert.langster@gmail.com"
               class="w-full"
             />
@@ -54,7 +55,7 @@ const password = ref('')
           <IconField class="flex items-center">
             <InputIcon class="pi pi-key mr-2" />
             <Password
-              v-model="password"
+              v-model="credentials.password"
               type="password"
               placeholder="Password"
               toggleMask
