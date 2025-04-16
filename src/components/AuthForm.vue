@@ -1,6 +1,5 @@
 <!-- authform.vue -->
 <script setup>
-import { inject } from 'vue'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import IconField from 'primevue/iconfield'
@@ -12,7 +11,10 @@ import GoogleAuthLink from '../components/GoogleAuthLink.vue'
 
 const { error } = useAuth()
 
-const credentials = inject('credentials')
+const credentials = defineModel({
+  type: Object,
+  default: () => ({ email: '', password: '' })
+})
 </script>
 
 <template>
@@ -20,7 +22,7 @@ const credentials = inject('credentials')
     <div class="bg-white rounded-3xl w-full flex flex-col md:flex-row overflow-hidden">
       <!-- Левая колонка: Форма -->
       <div
-        class="lg:w-[550px] md:[450px] w-full flex flex-col items-center p-[32px_24px_30px] md:p-[48px_64px_66px]"
+        class="lg:w-[550px] md:w-[450px] w-full flex flex-col items-center p-[32px_24px_30px] md:p-[48px_64px_66px]"
       >
         <div class="flex flex-col w-full">
           <div class="h-[48px] mb-[56px] flex gap-4 items-center">
@@ -36,7 +38,7 @@ const credentials = inject('credentials')
           <slot name="header"></slot>
         </div>
 
-        <form class="flex flex-col md:min-w-full md:max-w-[422px]">
+        <form class="flex flex-col w-full md:max-w-[422px]">
           <Message v-if="error" severity="warn">{{ error }}</Message>
 
           <label for="email" class="text-primary-color font-semibold mt-8 mb-2">Email</label>

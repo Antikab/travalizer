@@ -1,5 +1,5 @@
 <script setup>
-import { ref, provide } from 'vue'
+import { ref } from 'vue'
 import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
@@ -14,8 +14,6 @@ const credentials = ref({
   email: '',
   password: ''
 })
-
-provide('credentials', credentials)
 
 const signin = async () => {
   try {
@@ -32,7 +30,7 @@ const signup = () => {
 </script>
 
 <template>
-  <AuthForm>
+  <AuthForm v-model="credentials">
     <template #header>
       <div class="flex flex-col gap-4">
         <p class="title-20 md:title-24">
