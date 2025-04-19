@@ -1,4 +1,3 @@
-<!-- src/components/GoogleAuthLink.vue -->
 <script setup>
 import { useRouter } from 'vue-router'
 import { useAuth } from '../auth'
@@ -6,7 +5,6 @@ import { useAuth } from '../auth'
 const { signInWithGoogle } = useAuth()
 const router = useRouter()
 
-// Обработчик клика по "Google"
 const handleGoogleClick = async () => {
   try {
     await signInWithGoogle()

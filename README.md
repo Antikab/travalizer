@@ -1,35 +1,30 @@
-# travalizer
+# Travalizer & Pokémon SPA
 
-This template should help get you started developing with Vue 3 in Vite.
+Минималистичное Vue 3‑приложение с AI‑интро, регистрацией/авторизацией через Firebase и каталогом покемонов из PokeAPI.
 
-## Recommended IDE Setup
+[**➡️ Посмотреть демо**](https://travalizer.vercel.app/)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Стек технологий
 
-## Customize configuration
+- **Фреймворк**: Vue 3 + Vite (ESM, быстрый HMR)
+- **UI**: PrimeVue + Tailwind CSS
+- **Аутентификация**: Firebase Auth (Email/Password & Google OAuth)
+- **Обмен данными**: axios, PokeAPI
+- **Качество кода**: ESLint, Prettier
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Ключевые фичи
 
-## Project Setup
+- **Регистрация и вход**: email/password + Google OAuth, JWT в localStorage
+- **Защищённые маршруты**: Vue Router Guards + lazy‑loading компонентов
+- **Каталог покемонов**: список с картинками, страница деталей
+- **Авто‑рефреш токена**: axios‑интерсепторы обрабатывают 401 и обновляют токен
+- **Компонентная архитектура**: reusable components, composables (useAuth), clear project structure
 
-```sh
-yarn
-```
+## Быстрый старт
 
-### Compile and Hot-Reload for Development
-
-```sh
-yarn dev
-```
-
-### Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
+```bash
+yarn           # установить зависимости
+yarn dev       # запустить в режиме разработки
+yarn build     # собрать на продакшен
+yarn preview   # локальный предпросмотр
 ```

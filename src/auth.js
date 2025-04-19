@@ -1,4 +1,3 @@
-// src/auth.js
 import { ref } from 'vue'
 import axiosApiInstance from './api'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'

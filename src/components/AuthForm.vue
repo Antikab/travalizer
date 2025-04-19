@@ -1,4 +1,3 @@
-<!-- authform.vue -->
 <script setup>
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
@@ -24,7 +23,7 @@ const credentials = defineModel({
       <div
         class="md:w-1/2 lg:w-[550px] w-full flex flex-col items-center grow p-[32px_24px] lg:p-[48px_64px_66px]"
       >
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full mb-8">
           <div class="hidden md:flex h-[48px] mb-[56px] gap-4 items-center">
             <inline-svg
               class="text-primary-color size-[48px]"
@@ -39,9 +38,7 @@ const credentials = defineModel({
         </div>
 
         <form class="flex flex-col w-full md:max-w-[422px]">
-          <Message v-if="error" severity="warn">{{ error }}</Message>
-
-          <label for="email" class="text-primary-color font-semibold mt-8 mb-2">Email</label>
+          <label for="email" class="text-primary-color font-semibold mb-2">Email</label>
           <IconField class="flex items-center">
             <InputIcon class="pi pi-envelope mr-2" />
             <InputText
@@ -52,6 +49,8 @@ const credentials = defineModel({
               class="w-full"
             />
           </IconField>
+
+          <Message v-if="error" class="mt-6" severity="warn">{{ error }}</Message>
 
           <label for="pv_id_6" class="text-primary-color font-semibold mt-6 mb-2">Password</label>
           <IconField class="flex items-center">
@@ -65,17 +64,20 @@ const credentials = defineModel({
             />
           </IconField>
 
-          <!-- Доп. опции (Remember me / Forgot password?) -->
           <div class="flex items-center justify-between text-sm text-gray-600 my-6">
-            <label class="flex items-center justify-center text-primary-color gap-2">
-              <input type="checkbox" class="mr-1" /> Remember me
+            <label class="flex items-center justify-center text-primary-color gap-2 select-none">
+              <input
+                type="checkbox"
+                class="mr-1 accent-primary-color-3 focus:ring-offset-primary-color-4"
+              />
+              Remember me
             </label>
             <a href="#" class="text-primary-color underline">Forgot password?</a>
           </div>
 
           <slot name="form"> </slot>
 
-          <!-- Альтернативный вход -->
+          <!-- Альтернативный вход через гугл почту -->
           <div
             class="h-[64px] flex flex-col md:flex-row justify-end md:justify-start items-center gap-6 mt-[40px] text-center text-primary-color-2"
           >

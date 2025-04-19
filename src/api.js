@@ -1,4 +1,3 @@
-// src/api.js
 import axios from 'axios'
 import { useAuth } from './auth'
 import router from './router'

@@ -13,10 +13,5 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <Button
-    label="Logout"
-    @click="handleLogout"
-    class="p-button-danger"
-  />
+  <Button label="Logout" @click="handleLogout" class="p-button-danger" />
 </template>
-

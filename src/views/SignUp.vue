@@ -1,4 +1,3 @@
-<!-- signup.vue -->
 <script setup>
 import { ref } from 'vue'
 import { useAuth } from '../auth'
@@ -42,10 +41,8 @@ const signin = () => {
     </template>
 
     <template #form>
-      <!-- Индикатор загрузки -->
       <Loader v-if="loader" />
 
-      <!-- Кнопки: устанавливаем тип button и привязываем обработчики -->
       <div v-else class="flex gap-6">
         <Button label="Register" type="submit" @click.prevent="signup" class="w-full" />
         <Button label="Sign In" type="button" @click="signin" class="w-full p-button-outlined" />
