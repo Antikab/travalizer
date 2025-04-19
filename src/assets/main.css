@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+
 :root {
   --p-inputtext-focus-border-color: var(--color-primary-color-3) !important;
   --p-inputtext-hover-border-color: var(--color-primary-color-5) !important;
@@ -38,9 +39,6 @@
 
   .p-password-input {
     width: 100% !important;
-  }
-
-  .p-button-outlined {
   }
 }
 

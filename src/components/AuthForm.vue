@@ -18,14 +18,14 @@ const credentials = defineModel({
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl w-full flex flex-col md:flex-row overflow-hidden">
+  <div class="flex items-center justify-center w-full md:w-fit md:p-4">
+    <div class="bg-white md:rounded-3xl w-full flex flex-col-reverse md:flex-row overflow-hidden">
       <!-- Левая колонка: Форма -->
       <div
-        class="lg:w-[550px] md:w-[450px] w-full flex flex-col items-center p-[32px_24px_30px] md:p-[48px_64px_66px]"
+        class="md:w-1/2 lg:w-[550px] w-full flex flex-col items-center grow p-[32px_24px] lg:p-[48px_64px_66px]"
       >
         <div class="flex flex-col w-full">
-          <div class="h-[48px] mb-[56px] flex gap-4 items-center">
+          <div class="hidden md:flex h-[48px] mb-[56px] gap-4 items-center">
             <inline-svg
               class="text-primary-color size-[48px]"
               src="/src/assets/icons/Logo.svg"
@@ -76,24 +76,36 @@ const credentials = defineModel({
           <slot name="form"> </slot>
 
           <!-- Альтернативный вход -->
-          <div class="flex items-center mt-[56px]">
-            <div class="flex justify-center flex-wrap gap-6 text-center text-primary-color-2">
-              Or, login with
-              <div class="flex gap-6">
-                <GoogleAuthLink />
-                <a class="text-neutral-400 cursor-not-allowed">Facebook</a>
-                <a class="text-neutral-400 cursor-not-allowed">LinkedIn</a>
-              </div>
+          <div
+            class="h-[64px] flex flex-col md:flex-row justify-end md:justify-start items-center gap-6 mt-[40px] text-center text-primary-color-2"
+          >
+            <div class="flex shrink-0">Or, login with</div>
+            <div class="flex justify-around sm:justify-center md:justify-start w-full gap-6">
+              <GoogleAuthLink />
+              <a class="text-neutral-400 cursor-not-allowed">Facebook</a>
+              <a class="text-neutral-400 cursor-not-allowed">LinkedIn</a>
             </div>
           </div>
         </form>
       </div>
 
-      <!-- Правая колонка: Иллюстрация (показывается только на десктопе) -->
+      <!-- Правая колонка: Картинка  -->
       <div
-        class="hidden md:flex xl:w-[746px] bg-secondary-color items-center justify-center md:p-10 lg:p-[188px_123px]"
+        class="flex p-[35px_100px_30px] w-full md:w-1/2 md:grow xl:w-[746px] bg-secondary-color items-center justify-center md:p-10 lg:p-[188px_123px]"
       >
-        <img src="/image/travel-logo.webp?url" alt="Van illustration" class="w-full" />
+        <img src="/image/travel-logo.webp?url" alt="Van illustration" class="flex grow" />
+      </div>
+      <div
+        class="flex items-center justify-center gap-4 md:hidden md:mb-[56px] p-[32px_106px] bg-primary-color"
+      >
+        <inline-svg
+          class="text-white size-[48px]"
+          src="/src/assets/icons/Logo.svg"
+          aria-label="icon-logo"
+          role="img"
+          fill="currentColor"
+        />
+        <h1 class="title-32 text-white">Travalizer</h1>
       </div>
     </div>
   </div>
