@@ -101,7 +101,7 @@ const credentials = defineModel({
         class="flex items-center justify-center gap-4 md:hidden md:mb-[56px] p-[32px_106px] bg-primary-color"
       >
         <inline-svg
-          class="text-white size-[48px]"
+          class="flex shrink-0 text-white size-[48px]"
           src="/icons/Logo.svg"
           aria-label="icon-logo"
           role="img"
