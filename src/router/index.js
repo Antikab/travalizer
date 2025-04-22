@@ -4,7 +4,7 @@ import { useAuth } from '../auth'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     redirect: '/pokemons'
   },
   {
