@@ -52,7 +52,7 @@ const credentials = defineModel({
             v-model="credentials.password"
           />
 
-          <div class="flex items-center justify-between text-sm text-gray-600 my-6">
+          <div class="flex items-center justify-between text-sm text-gray-600">
             <label class="flex items-center justify-center text-primary-color gap-2 select-none">
               <input
                 type="checkbox"
@@ -66,7 +66,7 @@ const credentials = defineModel({
           <slot name="form"> </slot>
 
           <div
-            class="h-[64px] flex flex-col md:flex-row justify-end md:justify-start items-center gap-6 mt-[40px] text-center text-primary-color-2"
+            class="flex flex-col md:flex-row justify-end md:justify-start items-center gap-6 mt-[56px] text-center text-primary-color-2"
           >
             <div class="flex shrink-0">Or, login with</div>
             <div class="flex justify-around sm:justify-center md:justify-start w-full gap-6">

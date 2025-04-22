@@ -33,7 +33,7 @@ const model = defineModel({})
         :id="id"
         v-model="model"
         type="text"
-        class="grow bg-transparent outline-none tracking-[0.2em]"
+        class="grow bg-transparent outline-none tracking-[0.2em] placeholder:tracking-normal"
         :placeholder="placeholder"
         required
       />

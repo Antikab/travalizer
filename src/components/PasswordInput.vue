@@ -36,7 +36,7 @@ const showPassword = ref(false)
         :id="id"
         v-model="model"
         :type="showPassword ? 'text' : 'password'"
-        class="grow bg-transparent outline-none tracking-[0.2em]"
+        class="grow bg-transparent outline-none tracking-[0.2em] placeholder:tracking-normal"
         :placeholder="placeholder"
         required
       />
