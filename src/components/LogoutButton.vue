@@ -8,7 +8,7 @@ const router = useRouter()
 
 const handleLogout = () => {
   logout()
-  router.push({ name: 'Home' })
+  router.replace({ name: 'Signin' })
 }
 </script>
 
