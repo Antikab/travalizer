@@ -27,7 +27,7 @@ const credentials = defineModel({
           <div class="hidden md:flex h-[48px] mb-[56px] gap-4 items-center">
             <inline-svg
               class="text-primary-color size-[48px]"
-              src="/src/assets/icons/Logo.svg"
+              src="/icons/Logo.svg"
               aria-label="icon-logo"
               role="img"
               fill="currentColor"
@@ -102,7 +102,7 @@ const credentials = defineModel({
       >
         <inline-svg
           class="text-white size-[48px]"
-          src="/src/assets/icons/Logo.svg"
+          src="/icons/Logo.svg"
           aria-label="icon-logo"
           role="img"
           fill="currentColor"
