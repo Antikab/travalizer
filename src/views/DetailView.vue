@@ -2,9 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
-import Card from 'primevue/card'
-import Button from 'primevue/button'
 
+import MyButton from '@/components/MyButton.vue'
 import LogoutButton from '@/components/LogoutButton.vue'
 import Loader from '@/components/Loader.vue'
 
@@ -34,41 +33,43 @@ const fetchPokemonDetail = async () => {
   }
 }
 
-onMounted(() => {
-  fetchPokemonDetail()
-})
-
 const goBack = () => {
   router.push({ name: 'Pokemons' })
 }
+
+onMounted(() => {
+  fetchPokemonDetail()
+})
 </script>
 
 <template>
-  <div class="flex flex-col gap-10 p-6 min-h-screen">
-    <div class="flex justify-between items-center gap-6">
-      <Button label="Back" @click="goBack" />
+  <div class="min-h-screen bg-primary-color p-6 flex flex-col gap-8">
+    <div class="flex justify-between items-center mx-auto w-full">
+      <MyButton label="Back" @click="goBack" variant="outline" />
       <LogoutButton />
     </div>
 
-    <Card v-if="!loading && pokemon" class="max-w-md mx-auto p-4 shadow-lg">
-      <template #header>
-        <img :src="pokemon.image" :alt="pokemon.name" class="w-full object-contain p-4 h-64" />
-      </template>
+    <Loader v-if="loading" class="self-center" />
 
-      <template #title>
-        <h2 class="text-2xl font-bold text-center">{{ pokemon.name }}</h2>
-      </template>
+    <div
+      v-else
+      class="w-full mx-auto bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6"
+    >
+      <img
+        :src="pokemon.image"
+        :alt="pokemon.name"
+        class="w-48 h-48 object-contain mx-auto md:mx-0"
+      />
 
-      <template #content>
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold text-center md:text-left mb-4">{{ pokemon.name }}</h2>
         <ul class="space-y-2 text-lg">
-          <li><b>Height:</b> {{ pokemon.height }}</li>
-          <li><b>Weight:</b> {{ pokemon.weight }}</li>
-          <li><b>Type:</b> {{ pokemon.types }}</li>
-          <li><b>Abilities:</b> {{ pokemon.abilities }}</li>
+          <li><strong>Height:</strong> {{ pokemon.height }}</li>
+          <li><strong>Weight:</strong> {{ pokemon.weight }}</li>
+          <li><strong>Type:</strong> {{ pokemon.types }}</li>
+          <li><strong>Abilities:</strong> {{ pokemon.abilities }}</li>
         </ul>
-      </template>
-    </Card>
-
-    <Loader v-if="loading" class="grow flex items-center justify-center" />
+      </div>
+    </div>
   </div>
 </template>

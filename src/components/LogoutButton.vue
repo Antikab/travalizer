@@ -1,7 +1,8 @@
 <script setup>
-import { useAuth } from '@/auth'
 import { useRouter } from 'vue-router'
-import Button from 'primevue/button'
+
+import { useAuth } from '@/auth'
+import MyButton from '@/components/MyButton.vue'
 
 const { logout } = useAuth()
 const router = useRouter()
@@ -13,5 +14,5 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <Button label="Logout" @click="handleLogout" class="p-button-danger" />
+  <MyButton label="Logout" @click="handleLogout" variant="danger" />
 </template>

@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
-import AuthForm from '../components/AuthForm.vue'
-import Button from 'primevue/button'
-import Loader from '../components/Loader.vue'
+import { useAuth } from '../auth'
 
-const { sign, loader } = useAuth()
+import AuthForm from '@/components/AuthForm.vue'
+import MyButton from '@/components/MyButton.vue'
+import Loader from '@/components/Loader.vue'
+
+const { sign, loader, error } = useAuth()
 const router = useRouter()
 
 const credentials = ref({
@@ -24,13 +25,13 @@ const signup = async () => {
   }
 }
 
-const signin = () => {
+const goSignin = () => {
   router.push({ name: 'Signin' })
 }
 </script>
 
 <template>
-  <AuthForm v-model="credentials">
+  <AuthForm v-model="credentials" :error="error">
     <template #header>
       <div class="flex flex-col gap-4">
         <p class="title-20 md:title-24">
@@ -44,8 +45,14 @@ const signin = () => {
       <Loader v-if="loader" />
 
       <div v-else class="flex gap-6">
-        <Button label="Register" type="submit" @click.prevent="signup" class="w-full" />
-        <Button label="Sign In" type="button" @click="signin" class="w-full p-button-outlined" />
+        <MyButton label="Register" type="submit" @click.prevent="signup" class="flex-1" />
+        <MyButton
+          label="Sign In"
+          type="button"
+          @click="goSignin"
+          class="flex-1"
+          variant="outline"
+        />
       </div>
     </template>
   </AuthForm>

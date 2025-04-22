@@ -1,10 +1,6 @@
-import 'primeicons/primeicons.css'
-import Aura from '@primeuix/themes/aura'
-
 import './assets/main.css'
 import { createApp } from 'vue'
 import { initializeApp } from 'firebase/app'
-import PrimeVue from 'primevue/config'
 import App from './App.vue'
 import router from './router'
 import InlineSvg from 'vue-inline-svg'
@@ -22,14 +18,5 @@ initializeApp(firebaseConfig)
 
 const app = createApp(App)
 app.component('inline-svg', InlineSvg)
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura,
-    options: {
-      darkModeSelector: 'system',
-      cssLayer: false
-    }
-  }
-})
 app.use(router)
 app.mount('#app')

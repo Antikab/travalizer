@@ -1,13 +1,14 @@
 <script setup>
 import { ref } from 'vue'
-import { useAuth } from '../auth'
 import { useRouter } from 'vue-router'
 
-import AuthForm from '../components/AuthForm.vue'
-import Button from 'primevue/button'
-import Loader from '../components/Loader.vue'
+import { useAuth } from '../auth'
 
-const { sign, loader } = useAuth()
+import AuthForm from '@/components/AuthForm.vue'
+import MyButton from '@/components/MyButton.vue'
+import Loader from '@/components/Loader.vue'
+
+const { sign, loader, error } = useAuth()
 const router = useRouter()
 
 const credentials = ref({
@@ -24,13 +25,13 @@ const signin = async () => {
   }
 }
 
-const signup = () => {
+const goSignup = () => {
   router.push({ name: 'Signup' })
 }
 </script>
 
 <template>
-  <AuthForm v-model="credentials">
+  <AuthForm v-model="credentials" :error="error">
     <template #header>
       <div class="flex flex-col gap-4">
         <p class="title-20 md:title-24">
@@ -41,13 +42,11 @@ const signup = () => {
     </template>
 
     <template #form>
-      <!-- Индикатор загрузки -->
       <Loader v-if="loader" />
 
-      <!-- Кнопки: устанавливаем тип button и привязываем обработчики -->
       <div v-else class="flex gap-6">
-        <Button label="Login" type="submit" @click.prevent="signin" class="w-full" />
-        <Button label="Sign Up" type="button" @click="signup" class="w-full p-button-outlined" />
+        <MyButton label="Login" type="submit" @click.prevent="signin" class="flex-1" />
+        <MyButton label="Sign Up" @click="goSignup" class="flex-1" variant="outline" />
       </div>
     </template>
   </AuthForm>

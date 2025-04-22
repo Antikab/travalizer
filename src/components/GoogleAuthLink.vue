@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router'
-import { useAuth } from '../auth'
+import { useAuth } from '@/auth'
 
 const { signInWithGoogle } = useAuth()
 const router = useRouter()

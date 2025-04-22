@@ -2,9 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
-import Button from 'primevue/button'
-import Card from 'primevue/card'
 
+import MyButton from '@/components/MyButton.vue'
 import LogoutButton from '@/components/LogoutButton.vue'
 import Loader from '@/components/Loader.vue'
 
@@ -39,31 +38,29 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-10 p-6">
+  <div class="min-h-screen min-w-min p-6 flex flex-col gap-8 bg-zinc-100">
     <div class="flex justify-end">
       <LogoutButton />
     </div>
 
-    <Loader v-if="loading" class="grow flex items-center justify-center" />
+    <Loader v-if="loading" />
 
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <Card
+      <div
         v-for="pokemon in pokemons"
         :key="pokemon.id"
-        class="flex flex-col justify-between shadow-md hover:shadow-xl transition-shadow"
+        class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col"
       >
-        <template #header>
-          <img :src="pokemon.image" :alt="pokemon.name" class="w-full object-contain p-4 h-48" />
-        </template>
+        <img :src="pokemon.image" :alt="pokemon.name" class="w-full h-40 object-contain mb-4" />
+        <h3 class="text-lg font-semibold text-center mb-4">{{ pokemon.name }}</h3>
 
-        <template #title>
-          <h3 class="text-xl font-bold text-center">{{ pokemon.name }}</h3>
-        </template>
-
-        <template #footer>
-          <Button label="More details" class="w-full" @click="goToDetail(pokemon.id)" />
-        </template>
-      </Card>
+        <MyButton
+          label="More details"
+          class="mt-auto w-full"
+          @click="goToDetail(pokemon.id)"
+          variant="secondary"
+        />
+      </div>
     </div>
   </div>
 </template>
