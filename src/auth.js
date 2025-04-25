@@ -71,6 +71,9 @@ function useAuth() {
         case 'MISSING_PASSWORD':
           error.value = 'Необходимо ввести пароль.'
           break
+        case 'MISSING_EMAIL':
+          error.value = 'Необходимо ввести email.'
+          break
         default:
           error.value = message || 'Что-то пошло не так'
           break

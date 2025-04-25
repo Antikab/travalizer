@@ -38,28 +38,32 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="min-h-screen min-w-min p-6 flex flex-col gap-8 bg-zinc-100">
-    <div class="flex justify-end">
-      <LogoutButton />
-    </div>
-
+  <div class="min-h-screen min-w-min flex flex-col gap-8 p-6">
     <Loader v-if="loading" />
+    <div v-else class="flex flex-col gap-8">
+      <div class="flex justify-end">
+        <LogoutButton />
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div
+          v-for="pokemon in pokemons"
+          :key="pokemon.id"
+          class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col justify-center items-center"
+        >
+          <img
+            :src="pokemon.image"
+            :alt="pokemon.name"
+            class="w-[160px] h-[120px] lg:w-[260px] lg:h-[170px] object-contain mb-4"
+          />
+          <h3 class="text-lg font-semibold text-center mb-4">{{ pokemon.name }}</h3>
 
-    <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <div
-        v-for="pokemon in pokemons"
-        :key="pokemon.id"
-        class="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col"
-      >
-        <img :src="pokemon.image" :alt="pokemon.name" class="w-full h-40 object-contain mb-4" />
-        <h3 class="text-lg font-semibold text-center mb-4">{{ pokemon.name }}</h3>
-
-        <MyButton
-          label="More details"
-          class="mt-auto w-full"
-          @click="goToDetail(pokemon.id)"
-          variant="secondary"
-        />
+          <MyButton
+            label="More details"
+            class="max-w-max"
+            @click="goToDetail(pokemon.id)"
+            variant="secondary"
+          />
+        </div>
       </div>
     </div>
   </div>

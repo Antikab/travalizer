@@ -18,7 +18,7 @@ const variantClasses = {
   <button
     :type="type"
     :disabled="disabled"
-    class="px-4 py-2 disabled:opacity-50 transition"
+    class="px-4 py-2 disabled:opacity-50 transition cursor-pointer"
     :class="['px-4 py-2 rounded-lg transition disabled:opacity-50', variantClasses[variant]]"
   >
     {{ label }}

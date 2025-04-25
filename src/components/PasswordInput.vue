@@ -43,7 +43,7 @@ const showPassword = ref(false)
       <button
         type="button"
         @click="showPassword = !showPassword"
-        class="focus:outline-none"
+        class="focus:outline-none cursor-pointer"
         aria-label="Show/Hide password"
       >
         <template v-if="!showPassword">

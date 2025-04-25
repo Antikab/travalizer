@@ -44,31 +44,30 @@ onMounted(() => {
 
 <template>
   <div class="min-h-screen bg-primary-color p-6 flex flex-col gap-8">
-    <div class="flex justify-between items-center mx-auto w-full">
-      <MyButton label="Back" @click="goBack" variant="outline" />
-      <LogoutButton />
-    </div>
+    <Loader v-if="loading" />
+    <div v-else class="flex flex-col gap-8">
+      <div class="flex justify-between items-center mx-auto w-full">
+        <MyButton label="Back" @click="goBack" variant="outline" />
+        <LogoutButton />
+      </div>
+      <div
+        class="w-full mx-auto bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6"
+      >
+        <img
+          :src="pokemon.image"
+          :alt="pokemon.name"
+          class="w-48 h-48 object-contain mx-auto md:mx-0"
+        />
 
-    <Loader v-if="loading" class="self-center" />
-
-    <div
-      v-else
-      class="w-full mx-auto bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center md:items-start gap-6"
-    >
-      <img
-        :src="pokemon.image"
-        :alt="pokemon.name"
-        class="w-48 h-48 object-contain mx-auto md:mx-0"
-      />
-
-      <div class="flex-1">
-        <h2 class="text-3xl font-bold text-center md:text-left mb-4">{{ pokemon.name }}</h2>
-        <ul class="space-y-2 text-lg">
-          <li><strong>Height:</strong> {{ pokemon.height }}</li>
-          <li><strong>Weight:</strong> {{ pokemon.weight }}</li>
-          <li><strong>Type:</strong> {{ pokemon.types }}</li>
-          <li><strong>Abilities:</strong> {{ pokemon.abilities }}</li>
-        </ul>
+        <div class="flex-1">
+          <h2 class="text-3xl font-bold text-center md:text-left mb-4">{{ pokemon.name }}</h2>
+          <ul class="space-y-2 text-lg">
+            <li><strong>Height:</strong> {{ pokemon.height }}</li>
+            <li><strong>Weight:</strong> {{ pokemon.weight }}</li>
+            <li><strong>Type:</strong> {{ pokemon.types }}</li>
+            <li><strong>Abilities:</strong> {{ pokemon.abilities }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

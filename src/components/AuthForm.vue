@@ -35,7 +35,7 @@ const credentials = defineModel({
           <slot name="header"></slot>
         </div>
 
-        <form class="flex flex-col w-full gap-6 md:max-w-[422px]">
+        <form class="relative flex flex-col w-full gap-6 md:max-w-[422px]">
           <TextInput
             id="email"
             label="Email"
@@ -43,7 +43,7 @@ const credentials = defineModel({
             v-model="credentials.email"
           />
 
-          <Alert v-if="error" :message="error" />
+          <Alert v-if="error" :message="error" class="absolute top-[103px] right-0" />
 
           <PasswordInput
             id="password"
@@ -53,10 +53,12 @@ const credentials = defineModel({
           />
 
           <div class="flex items-center justify-between text-sm text-gray-600">
-            <label class="flex items-center justify-center text-primary-color gap-2 select-none">
+            <label
+              class="flex items-center justify-center text-primary-color gap-2 select-none cursor-pointer"
+            >
               <input
                 type="checkbox"
-                class="mr-1 accent-primary-color-3 focus:ring-offset-primary-color-4"
+                class="mr-1 accent-primary-color-3 focus:ring-offset-primary-color-4 cursor-pointer"
               />
               Remember me
             </label>
